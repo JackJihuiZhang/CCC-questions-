@@ -1,0 +1,11 @@
+N=int(input())
+H=input().split()
+W=input().split()
+t_a=0
+
+for i in range(0,len(H)):
+    if N==0:
+        break
+    t_a=t_a+(((int(H[i])+int(H[i+1]))*int(W[i]))/2)
+    N-=1
+print(t_a)
