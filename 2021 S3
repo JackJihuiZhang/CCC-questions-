@@ -1,0 +1,40 @@
+
+def t(x):
+    t=0
+    for i in range(len(l)):
+        if abs(x-l[i][0])>l[i][2]:
+            t=t+(abs(x-l[i][0])-l[i][2])*(l[i][1])
+    return t
+
+def binary_search(l):
+    low=l[0][0]
+    high=l[len(l)-1][0]
+    middle=0
+    while True:
+        middle=(low+high)//2
+        if t(middle-1)<t(middle)<t(middle+1):
+            high=middle-1
+        elif t(middle-1)>t(middle)>t(middle+1):
+            low=middle+1
+        elif t(middle-1)>t(middle) and t(middle)<t(middle+1):
+            return t(middle)
+        elif t(middle-1)==t(middle) and t(middle)==t(middle+1):
+            return t(middle)
+    
+    
+
+N=int(input())
+l=[]
+
+for i in range(N):
+    a=[]
+    x=input().split()
+    a.append(int(x[0]))
+    a.append(int(x[1]))
+    a.append(int(x[2]))
+    l.append(a)
+    a=[]
+
+l=sorted(l, key=lambda x:x[0])
+
+print(binary_search(l))
