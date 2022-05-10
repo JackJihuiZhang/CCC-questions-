@@ -1,0 +1,26 @@
+TotalRow=int(input())
+TotalCol=int(input())
+k=int(input())
+col=[1 for i in range(TotalCol)]
+row=[1 for j in range(TotalRow)]
+
+for i in range(k):
+    change,num=input().split()
+    num =int(num)
+    if change=="R":
+        row[num-1]*=-1
+    else:
+        col[num-1]*=-1
+R=0
+C=0
+for x in range(TotalRow):
+    if row[x]==-1:
+        R+=1
+for y in range(TotalCol):
+    if col[y]==-1:
+        C+=1
+
+    
+gold=C*TotalRow+R*TotalCol-C*R*2
+
+print(gold)
